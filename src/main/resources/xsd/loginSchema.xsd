@@ -1,0 +1,25 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="LoginRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceName" type="xsd:string" />
+                <xsd:element name="date" type="xsd:date" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LoginResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="status" type="requestStatus" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:simpleType name="requestStatus" final="restriction" >
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="OK" />
+            <xsd:enumeration value="WARNING" />
+            <xsd:enumeration value="ERROR" />
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
