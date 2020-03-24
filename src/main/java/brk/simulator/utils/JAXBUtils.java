@@ -13,8 +13,11 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.net.URL;
+import java.nio.file.InvalidPathException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +46,7 @@ public class JAXBUtils {
     private void initSchemaValidation(String schemaFileName){
         try {
             this.schema = createSchema(schemaFileName);
-        } catch (SAXException e) {
+        } catch (SAXException | FileNotFoundException e) {
             System.out.println(e.toString());
         }
     }
@@ -67,7 +70,7 @@ public class JAXBUtils {
         return stringWriter.toString();
     }
 
-    private Schema createSchema(String schemaFileName) throws SAXException {
+    private Schema createSchema(String schemaFileName) throws SAXException, FileNotFoundException {
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         Source[] sources = createSource(schemaFileName);
 
@@ -75,8 +78,8 @@ public class JAXBUtils {
 
     }
 
-    private Source[] createSource(String schemaFileName) {
-        String path = getClass().getClassLoader().getResource(schemaFileName).getPath();
+    private Source[] createSource(String schemaFileName) throws FileNotFoundException {
+        String path = getFullPath(schemaFileName);
         File filePath = new File(path);
         List<Source> sources = new ArrayList<>();
 
@@ -88,6 +91,16 @@ public class JAXBUtils {
             }
         }
 
-        return sources.toArray(new Source[sources.size()]);
+        return sources.toArray(new Source[0]);
+    }
+
+    private String getFullPath(String schemaFileName) throws FileNotFoundException {
+        URL url = getClass().getClassLoader().getResource(schemaFileName);
+
+        if (url != null){
+            return url.getPath();
+        }
+
+        throw new FileNotFoundException("error in putting schema to JAXBUtils. file name '" + schemaFileName + "' doesn't exist");
     }
 }
