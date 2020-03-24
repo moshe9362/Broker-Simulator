@@ -50,8 +50,7 @@
                 </executions>
                 <configuration>
                     <outputDirectory>target/generated-sources/jaxb</outputDirectory>
-                    <schemaDirectory>src/main/resources/xsd</schemaDirectory>
-                    <schemaFiles>loginSchema.xsd</schemaFiles>
+                    <schemaDirectory>src/main/resources/schemas</schemaDirectory>
                 </configuration>
             </plugin>
 

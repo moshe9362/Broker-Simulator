@@ -1,5 +1,6 @@
 package brk.simulator.utils;
 
+import brk.simulator.Main;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -22,21 +23,13 @@ public class JAXBUtils {
     private Schema schema;
 
     /**
-     * use this constructor use marshaller or unmarshaller, without validation messages!
+     * use this constructor to marshaller or unmarshaller, with validation messages.
+     * @param schemaFileName the schemas directory's name
      * @param clazz class that you want to use marshaller or unmarshaller
      */
-    public JAXBUtils(Class... clazz){
+    public JAXBUtils(String schemaFileName, Class... clazz){
         initJAXBContext(clazz);
-    }
-
-    /**
-     * use this constructor for check validation messages
-     * @param schemasFileLocation the schemas directory's path
-     * @param clazz class that you want to use marshaller or unmarshaller
-     */
-    public JAXBUtils(String schemasFileLocation, Class... clazz){
-        this(clazz);
-        initSchemaValidation(schemasFileLocation);
+        initSchemaValidation(schemaFileName);
     }
 
     private void initJAXBContext(Class... clazz){
@@ -47,9 +40,9 @@ public class JAXBUtils {
         }
     }
 
-    private void initSchemaValidation(String schemasFileLocation){
+    private void initSchemaValidation(String schemaFileName){
         try {
-            this.schema = createSchema(schemasFileLocation);
+            this.schema = createSchema(schemaFileName);
         } catch (SAXException e) {
             System.out.println(e.toString());
         }
@@ -74,29 +67,27 @@ public class JAXBUtils {
         return stringWriter.toString();
     }
 
-    private Schema createSchema(String schemasFileLocation) throws SAXException {
+    private Schema createSchema(String schemaFileName) throws SAXException {
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-        Source[] sources = createSource(schemasFileLocation);
+        Source[] sources = createSource(schemaFileName);
 
         return schemaFactory.newSchema(sources);
 
     }
 
-    private Source[] createSource(String schemasFileLocation) {
-        File file = new File(schemasFileLocation);
-        File[] listFiles = new File[]{};
+    private Source[] createSource(String schemaFileName) {
+        String path = getClass().getClassLoader().getResource(schemaFileName).getPath();
+        File filePath = new File(path);
         List<Source> sources = new ArrayList<>();
 
-        if (file.isDirectory()){
-            listFiles = file.listFiles();
+        if (filePath.isDirectory()){
+            File[] listFiles = filePath.listFiles();
 
             for (File schemaFile : listFiles) {
                 sources.add(new StreamSource(schemaFile));
             }
-        } else {
-            sources.add(new StreamSource(schemasFileLocation));
         }
 
-        return (Source[]) sources.toArray();
+        return sources.toArray(new Source[sources.size()]);
     }
 }
