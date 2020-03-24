@@ -11,8 +11,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.3.1" level="project" />
-    <orderEntry type="library" name="Maven: javax.activation:javax.activation-api:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.4.RELEASE" level="project" />
@@ -32,9 +30,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.2.4.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.yaml:snakeyaml:1.25" level="project" />
     <orderEntry type="module-library">
-      <library name="Maven: iaf.ofek.ron:ron-mq:3.0.3">
+      <library name="Maven: ron:ron-mq:3.0.3">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/iaf/ofek/ron/ron-mq/3.0.3/ron-mq-3.0.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/ron/ron-mq/3.0.3/ron-mq-3.0.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
