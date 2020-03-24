@@ -1,4 +1,4 @@
-package iaf.ofek.ron.interfaces.sender;
+package brk.simulator.interfaces.sender;
 
 import iaf.ron.common.tools.mq.MqQueueManager;
 import iaf.ron.common.tools.mq.MqQueueWriter;

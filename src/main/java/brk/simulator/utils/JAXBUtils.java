@@ -1,13 +1,9 @@
-package iaf.ofek.ron.utils;
-
-import iaf.ofek.ron.Main;
+package brk.simulator.utils;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.validation.SchemaFactory;
-import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
 
