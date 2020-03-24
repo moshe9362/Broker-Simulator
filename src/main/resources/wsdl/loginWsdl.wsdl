@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="Broker-Simulator" targetNameSpace="http://www.example.com/wsdl/Broker-Simulator.wsdl"
+             xmlns = "http://schemas.xmlsoap.org/wsdl/" xmlns:xsd ="http://www.w3.org/2001/XMLSchema">
+
+<!--    <types>-->
+<!--        <xsd:element name="LoginRequest">-->
+<!--            <xsd:complexType>-->
+<!--                <xsd:sequence>-->
+<!--                    <xsd:element name="serviceName" type="xsd:string"/>-->
+<!--                    <xsd:element name="date" type="xsd:date"/>-->
+<!--                </xsd:sequence>-->
+<!--            </xsd:complexType>-->
+<!--        </xsd:element>-->
+
+<!--        <xsd:element name="LoginResponse">-->
+<!--            <xsd:complexType>-->
+<!--                <xsd:sequence>-->
+<!--                    <xsd:element name="status" type="requestStatus"/>-->
+<!--                </xsd:sequence>-->
+<!--            </xsd:complexType>-->
+<!--        </xsd:element>-->
+
+<!--        <xsd:simpleType name="requestStatus" final="restriction">-->
+<!--            <xsd:restriction base="xsd:string">-->
+<!--                <xsd:enumeration value="OK"/>-->
+<!--                <xsd:enumeration value="WARNING"/>-->
+<!--                <xsd:enumeration value="ERROR"/>-->
+<!--            </xsd:restriction>-->
+<!--        </xsd:simpleType>-->
+<!--    </types>-->
+
+    <message name="getTermRequest">
+        <part name="term" type="xsd:string"/>
+    </message>
+
+<!--    <message name="getTermResponse">-->
+<!--        <part name="value" type="xsd:string"/>-->
+<!--    </message>-->
+
+<!--    <portType name="glossaryTerms">-->
+<!--        <operation name="getTerm">-->
+<!--            <input message="getTermRequest"/>-->
+<!--            <output message="getTermResponse"/>-->
+<!--        </operation>-->
+<!--    </portType>-->
+</definitions>

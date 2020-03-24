@@ -43,9 +43,27 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <outputDirectory>target/generated-sources/jaxb</outputDirectory>
                     <schemaDirectory>src/main/resources/xsd</schemaDirectory>
-                    <schemaFiles>loginSchema.xsd</schemaFiles>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>1.12</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
+                    <wsdlFiles>loginWsdl.wsdl</wsdlFiles>
+                    <keep>true</keep>
+                    <sourceDestDir>${project.basedir}/target/generated/src/main/java</sourceDestDir>
+                    <sei/>
                 </configuration>
             </plugin>
 
