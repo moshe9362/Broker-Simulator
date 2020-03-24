@@ -1,4 +1,4 @@
-package iaf.ofek.ron;
+package brk.simulator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

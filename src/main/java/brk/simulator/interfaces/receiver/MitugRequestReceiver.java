@@ -1,4 +1,4 @@
-package iaf.ofek.ron.interfaces.receiver;
+package brk.simulator.interfaces.receiver;
 
 import iaf.ron.common.tools.mq.MqQueueManager;
 import iaf.ron.common.tools.mq.MqQueueReader;
