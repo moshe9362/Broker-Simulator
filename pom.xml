@@ -21,11 +21,11 @@
         </dependency>
 
         <dependency>
-            <groupId>iaf.ofek.ron</groupId>
+            <groupId>ron</groupId>
             <artifactId>ron-mq</artifactId>
             <version>3.0.3</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/iaf/ofek/ron/ron-mq/3.0.3/ron-mq-3.0.3.jar</systemPath>
+            <systemPath>${project.basedir}/lib/ron/ron-mq/3.0.3/ron-mq-3.0.3.jar</systemPath>
         </dependency>
 
         <dependency>
