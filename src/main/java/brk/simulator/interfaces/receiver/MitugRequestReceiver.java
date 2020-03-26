@@ -1,5 +1,10 @@
 package brk.simulator.interfaces.receiver;
 
+import brk.simulator.interfaces.sender.ShkResponseSender;
+import brk.simulator.logic.MessageHandler;
+import generated.LiveRequest;
+import generated.LiveResponse;
+import generated.ObjectFactory;
 import iaf.ron.common.tools.mq.MqQueueManager;
 import iaf.ron.common.tools.mq.MqQueueReader;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +19,16 @@ import javax.jms.TextMessage;
 @Service
 public class MitugRequestReceiver implements MessageListener {
     private MqQueueReader mqQueueReader;
+    private MessageHandler messageHandler;
+
+
 
     @Autowired
-    public MitugRequestReceiver(MqQueueManager mqQueueManager,
+    public MitugRequestReceiver(MessageHandler messageHandler,
+                                MqQueueManager mqQueueManager,
                                 @Value("${mq.mitug.request.receive.queue.name}") String queueName){
         initMQReader(mqQueueManager, queueName);
+        this.messageHandler = messageHandler;
     }
 
     private void initMQReader(MqQueueManager mqQueueManager, String queueName){
@@ -31,14 +41,10 @@ public class MitugRequestReceiver implements MessageListener {
         }
     }
 
-    private void massageHandle(Message message) {
-
-    }
-
     @Override
     public void onMessage(Message message) {
         if (message instanceof TextMessage){
-            massageHandle(message);
+            messageHandler.handle((TextMessage) message);
         }
     }
 }

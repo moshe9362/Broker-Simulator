@@ -35,4 +35,9 @@ public class config {
     public JAXBUtils jaxbUtils(@Value("${schemas.file.name}") String schemaFileName){
         return new JAXBUtils(schemaFileName, ObjectFactory.class);
     }
+
+    @Bean
+    public generated.ObjectFactory objectFactory() {
+        return new generated.ObjectFactory();
+    }
 }

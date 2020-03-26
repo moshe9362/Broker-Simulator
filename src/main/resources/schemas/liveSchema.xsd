@@ -1,0 +1,17 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="LiveRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceName" type="xsd:string" />
+                <xsd:element name="date" type="xsd:date" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LiveResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="date" type="xsd:date" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

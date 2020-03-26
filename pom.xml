@@ -27,12 +27,6 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/ron/ron-mq/3.0.3/ron-mq-3.0.3.jar</systemPath>
         </dependency>
-
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -49,10 +43,31 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <outputDirectory>target/generated-sources/jaxb</outputDirectory>
                     <schemaDirectory>src/main/resources/schemas</schemaDirectory>
                 </configuration>
             </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>jaxws-maven-plugin</artifactId>-->
+<!--                <version>2.6</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>wsimport-from-jdk</id>-->
+<!--                        <goals>-->
+<!--                            <goal>wsimport</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <wsdlDirectory>wsdl</wsdlDirectory>-->
+<!--                    <wsdlFiles>-->
+<!--                        <wsdlFile>loginWsdl.wsdl</wsdlFile>-->
+<!--                    </wsdlFiles>-->
+<!--                    <keep>true</keep>-->
+<!--                    <sourceDestDir>target/generated/src/main/java</sourceDestDir>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
 
 <!--            <plugin>-->
 <!--                <groupId>org.springframework.boot</groupId>-->
