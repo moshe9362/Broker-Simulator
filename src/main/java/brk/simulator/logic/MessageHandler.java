@@ -4,6 +4,7 @@ import brk.simulator.interfaces.sender.ShkResponseSender;
 import generated.LiveRequest;
 import generated.LiveResponse;
 import generated.ObjectFactory;
+import generated.RequestStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +30,7 @@ public class MessageHandler {
 
     private void handleLiveRequest() {
         LiveResponse liveResponse = objectFactory.createLiveResponse();
+        liveResponse.setStatus(RequestStatus.OK);
         shkResponseSender.send(liveResponse);
     }
 }

@@ -36,7 +36,7 @@
     <xsd:element name="LiveResponse">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="date" type="xsd:date" />
+                <xsd:element name="status" type="requestStatus" />
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
