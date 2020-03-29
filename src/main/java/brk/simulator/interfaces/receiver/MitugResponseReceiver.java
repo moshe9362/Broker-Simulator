@@ -31,14 +31,14 @@ public class MitugResponseReceiver implements MessageListener {
         }
     }
 
-    private void massageHandle(Message message) {
+    private void messageHandle(Message message) {
 
     }
 
     @Override
     public void onMessage(Message message) {
         if (message instanceof TextMessage){
-            massageHandle(message);
+            messageHandle(message);
         }
     }
 }

@@ -1,10 +1,7 @@
 package brk.simulator.logic;
 
 import brk.simulator.interfaces.sender.ShkResponseSender;
-import generated.LiveRequest;
-import generated.LiveResponse;
-import generated.ObjectFactory;
-import generated.RequestStatus;
+import generated.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +22,15 @@ public class MessageHandler {
     public void handle(TextMessage message) {
         if (message instanceof LiveRequest) {
             handleLiveRequest();
+        } else if (message instanceof LoginRequest) {
+            handleLoginRequest();
         }
+    }
+
+    private void handleLoginRequest() {
+        LoginResponse loginResponse = objectFactory.createLoginResponse();
+        loginResponse.setStatus(RequestStatus.OK);
+        shkResponseSender.send(loginResponse);
     }
 
     private void handleLiveRequest() {

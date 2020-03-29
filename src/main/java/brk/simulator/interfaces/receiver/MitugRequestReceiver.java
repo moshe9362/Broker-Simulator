@@ -21,8 +21,6 @@ public class MitugRequestReceiver implements MessageListener {
     private MqQueueReader mqQueueReader;
     private MessageHandler messageHandler;
 
-
-
     @Autowired
     public MitugRequestReceiver(MessageHandler messageHandler,
                                 MqQueueManager mqQueueManager,
